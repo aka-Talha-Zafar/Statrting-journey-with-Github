@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Common Git commands</title>
+</head>
+<body>
+    <h1>Common git comands to perform basic/usefull functions on github repository</h1>
+    <br>
+    <h2>Cloning a repository</h2>
+    <p>
+        <b>The very first and most important step is to cloning a repository to your local storage on which you want to perform changes. This can be done by executing sigle line or simple command:</b>
+        <br>
+        git clone http_address_of_repo_you_want_to_clone
+    </p>
+
+    <br>
+    <h2>Git Configurations: (Configuring git with username and email)</h2>
+    <p>
+        <b>To configure your name and gmail account with github repository run following commands on terminal after cloning the repository:</b>
+        <br>
+        <br>
+        <b>For user Name</b>
+        <br>
+        git config --global user.name "Your github user name here"
+        <br>
+        <b>For email</b>>
+        <br>
+        git config --global user.email "Your email address asociated to github"
+        <br>
+        <b>Now to see  all configurations use command</b>
+        <br>
+        git config --list
+        <br>
+        <b>To see only the user name and email only use</b>
+        <br>
+        git config --global user.name
+        <br>
+        git config --global user.emai
+    </p>
+    <br>
+    <h2>Git status</h2>
+    <p>
+        <b>Git status command tells us about the present status of repository or code. Tells wether the code/repo is up to date or need any changes to be merged</b>
+        <br>
+        git status
+        <br>
+        There are four types of status in Git:
+        <br>
+        <b>1) Untracked</b> (Any new file created that does not tracked by git yet.If you made any changes to this file it will still remains untracked not modified as this file is not tracked by git)
+        <br>
+        <b>2) Modified</b> (Shows that you have made any change in file which is not added/committed yet.)
+        <br>
+        <b>3) Staged</b> (Shows that file is ready to be committed. Means the changes you have made to file are added and now ready to be committed)
+        <br>
+        <b>4) Unchanged</b> (Means there is not any change made to file yet, everything is up to dated)
+    </p>
+    <br>
+    
+
+</body>
+</html>
+
+
+

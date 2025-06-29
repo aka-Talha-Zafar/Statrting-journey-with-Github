@@ -1,2 +1,2 @@
-# SwiftQuery
-An AI powerd customer support agent.
+# Getting started with git/github
+Learning all aspects about git and github.

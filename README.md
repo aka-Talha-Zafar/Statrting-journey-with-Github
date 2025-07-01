@@ -1,2 +1,2 @@
-#  A Guide to Core Commands & Best Practices”
+#  "A Guide to Core Commands & Best Practices”
 This repository contains a complete beginner-friendly documentation of essential Git and GitHub commands, including clear definitions, syntax, and use cases for each command. It covers everything from initializing a repo to branching, merging, resetting, resolving merge conflicts, and working with remotes. At the end, a curated list of practical tips and best practices is included to help new developers avoid common mistakes and work more efficiently with Git. Whether you're just starting out or need a quick reference, this guide is designed to be a practical resource for everyday Git usage.

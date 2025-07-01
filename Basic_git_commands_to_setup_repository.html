@@ -6,13 +6,13 @@
     <title>Common Git commands</title>
 </head>
 <body>
-    <h1>Common git comands to perform basic/usefull functions on github repository</h1>
+    <h1>Common git/github comands to perform basic/useful functions on repositories</h1>
     <br>
     <h2>Cloning a repository</h2>
     <p>
-        <b>The very first and most important step is to cloning a repository to your local storage on which you want to perform changes. This can be done by executing sigle line or simple command:</b>
+        If you are a beginner it is advised to create a remote repository first and then clone it localy for editing.You can also create a repository localy first and then link it to remote one, but for a beginner this approach is not recomended. Cloning of github repository can be done by executing sigle line/simple command:
         <br>
-        git clone http_address_of_repo_you_want_to_clone
+        <b>Command = </b>git clone http/ssh_address_of_repo_you_want_to_clone
     </p>
 
     <br>
@@ -25,7 +25,7 @@
         <br>
         git config --global user.name "Your github user name here"
         <br>
-        <b>For email</b>>
+        <b>For email</b>
         <br>
         git config --global user.email "Your email address asociated to github"
         <br>
@@ -40,7 +40,7 @@
         git config --global user.emai
     </p>
     <br>
-    <h2>Git status</h2>
+    <h2>Git status command</h2>
     <p>
         <b>Git status command tells us about the present status of repository or code. Tells wether the code/repo is up to date or need any changes to be merged</b>
         <br>
@@ -83,9 +83,134 @@
     <br>
     <h2>Push Command</h2>
     <p>
-        Push comand is used to upload content from local repo (your PC) to remote repo (Github)
+        Push comand is used to upload commits/changes from local repo (your PC) to remote repo (Github)
         <br>
-        <b>Command = </b>git push origin main
+        <b>Command = </b>git push origin main 
+        <br>
+        (Pushes your local "main" branch to the remote "origin/main".But it does not set up any upstream/tracking relationship.Next time you want to push, you'll need to specify the branch again.)
+        <br>
+        <b>Command = </b>git push -u origin main
+        <br>
+        (Pushes your local "main" branch to "origin/main", Also sets up your local branch to "track" the remote branch.After this, Git knows “Okay, when working on main, I should push/pull from origin/main by default.”)
+        <br> 
+    </p>
+    <br>
+    <h2>Init Command</h2>
+    <p>
+        This command initializes a new local git repository in your current directory.Creates a hidden .git folder due to which your project folder becomes a local Git repository, but not yet connected to any remote like GitHub.
+        <br>
+        <b>Command =</b> git init
+        <br>
+    <h2>Command to link local repo to remote repo (Github)</h2>
+        This command is used to connect/associate your local repo with a remote one (usually on GitHub, GitLab, etc.).
+        <br>
+        It involves some basic steps which you should have to consider:
+        <br>
+        <b>1)</b> Create a local git repo
+        <br>
+        <b>2)</b> Create a remote repo on (Github) without adding a readme file
+        <br>
+        <b>3)</b> Copy the HTTPS/SSH address provided on remote repo
+        <br>
+        <b>4)</b> Execute the link command 
+        <br>
+        <b>Command = </b>git remote add origin "HTTPS/SSH_link_of_remote_repo"
+        <br>
+    <h2>Command to verify remote repo</h2>
+        After linking the local repo with remote one you can check wether you linked to correct remote repo by using this command.
+        It List down all configured remote repositories and their URLs.
+        <br>
+        <b>Command = </b>git remote -v
+        <br>
+    <h2>Command to check working branch</h2>
+        Shows all local branches in your repository and highlights the current working branch with an asterisk (*). 
+        <br>
+        <b>Command = </b>git branch
+        <br>
+    <h2>Command to rename branch</h2>
+        Renames the current branch to main. The -M flag forces the rename, even if a branch named main already exists.This is done because Git automatically defines "master" as the main branch.But, main is the new convention (especially on GitHub).
+        <br>
+        <b>Command = </b>git branch -M main
+        <br>
+    <h2>Command to nevigate between branches</h2>
+        Switches to an existing branch named "branch-name" in your local repository.
+        <br>
+        <b>Command = </b>git checkout "branch-name"
+        <br>
+    <h2>Command to create new branch</h2>
+        Creates a new branch named "new-branch-name" and automatically switches to it.
+        <br>
+        <b>Command = </b>git checkout -b "new-branch-name"
+    <h2>Command to delet branch</h2>
+        Used to delete an existing repository.It will not delete current working branch, you have to nevigate to other branch which you dont want to delete.
+        <br>
+        <b>Command = </b>git branch -d "branch name" (Deletes the specified local branch, but only if it has been fully merged into your current branch.)
+        <br>
+        <b>Command = </b>git branch -D "branch name" (Used to force delete the branch even if the changes are not merged)
+        <br>
+    <h2>Command to compare two brnaches</h2>
+        This is a comparison command used to see differences between your current branch and another branch.SHows line by line changes between your current working branch (main) and specified "branch name".
+        <br>
+        <b>Command = </b>git diff "branch-name"
+        <br>
+    <h2>Command to merge two branches</h2>
+        This command is used to merge the specified branch (branch-name) into your current branch (main).
+        <br>
+        <b>Command = </b>git merge "branch-name"
+        <br>
+    <h2>Pull request</h2>
+        A Pull Request (PR) is a request to merge one branch into another in a remote Git hosting service (like GitHub, GitLab, Bitbucket).Basically, you tells the maintainer/owner of repo that, I have made some changes in my branch can you please review and merge them to main brach.
+    <h2>Pull command</h2>
+        This command fetches the latest changes from the main branch of the remote repo (Github/origin), and then merges them into your current local branch.
+        <br>
+        <b>Command = </b>git pull origin main
+    <h2>Merge conflicts</h2>
+        A merge conflict happens when Git can’t automatically decide how to combine changes made in different branches — because the same lines of a file have been edited in both branches.When ever a merge conflict occurs you got 4 different ways/options to merge the code:
+        <br>
+        <b>1) Accept Current Change</b> (It allows us to accept the changes of current/working branch)
+        <br>
+        <b>2) Accept Incoming Change</b> (It allows us to accept the changes coming from other branch (in which we are not present/working) )
+        <br>
+        <b>3) Accept Both Changes</b> (It allows us to accept changes of both branches)
+        <br>
+        <b>4) Compare Changes</b> (It opens a side-by-side view of both versions so you can visually inspect and edit the result manually.)
+        <br>
+    <h2>Commands to undo changes</h2>
+       If you’ve made changes to your repository and want to undo them, Git provides several commands and methods to help you revert or discard those changes.
+       <br>
+       <b>1) Stagged/add changes</b>
+       <br>
+       <b>Command = </b>git reset "file_name" (Used when you have made changes to single file or want to revert changes of single file)
+       <br>
+       <b>Command = </b>git reset (Used when you have to revert changes from multiple files)
+       <br>
+       <b>2)Commited changes</b>
+       <br>
+       <b>Command = </b>git reset HEAD~1 (Used to revert only 1 (one) commit back.)
+       <br>
+       <b>Command = </b>git reset "commit hash" (Used to revert back to specified commit "Hash value is the assigned code of specified commit".It deletes the recent commit in git but we can not see changes on VScode)
+       <br>
+       <b>Command = </b>git reset --hard "commit-hash" (Used to revert back to specified commit "Hash value is the assigned code of specified commit".It also show changes on VScode)
+       <br>
+    <h2>Command to see commit history</h2>
+       Displays the commit history of the current branch, showing all commits made — in reverse chronological order (most recent first).Display's all necessary info of commit including hash valus, author name, date of commit and etc.
+       <br>
+       <b>Command = =</b>git log
+       <br>
+    <h2>Fork</h2>
+       	Fork is used to create a remote copy of other's repo under your GitHub account.Allows you for Open source collaboration, experimentation and independent development without affecting the original repo.You can fork other's repo under your account and after performing changes, create a new pull request which can be merged by maintainer of repository after reviewing it.
+        <br>
+    <h2>Smart Git Habits for Clean Collaboration</h2>
+        <br>
+        <b>1) </b>Always do a git pull before you start a new session of work, just to be synced.
+        <br>
+        <b>2) </b>Always create a new branch before making experimental changes. That way, your main branch remains clean and stable.
+        <br>
+        <b>3) </b>Always review your changes with git diff before committing.It prevents accidental commits of debug code or half-done work.
+        <br>
+        <b>4) </b> Pull before you push to avoid conflicts, as it keeps your changes compatible with the latest remote updates.
+        <br>
+        <b>5) </b>Use descriptive branch names, as clear and useful make collaboration cleaner.
     </p>
 </body>
 </html>

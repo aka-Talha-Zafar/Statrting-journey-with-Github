@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Git Commands</title>
+</head>
+<body>
+<h1 style="text-align: center; border-bottom: 2px solid #24292e; padding-bottom: 10px;">
+    Essential Git/GitHub Commands - Beginner's Reference Guide
+</h1>    
+    <h2>Cloning a repository</h2>
+    <p>
+        If you are a beginner it is advised to create a remote repository first and then clone it locally for editing. You can also create a repository locally first and then link it to remote one, but for a beginner this approach is not recommended. Cloning of GitHub repository can be done by executing single line/simple command:
+    </p>
+    <p><b>Command = </b>git clone "http/ssh_address_of_repo_you_want_to_clone"</p>
+
+    <h2>Git Configurations: (Configuring git with username and email)</h2>
+    <p><b>To configure your name and email account with GitHub repository run following commands on terminal after cloning the repository:</b></p>
+    <p><b>For user Name</b><br>
+    git config --global user.name "Your github user name here"</p>
+    <p><b>For email</b><br>
+    git config --global user.email "Your email address associated to GitHub"</p>
+    <p><b>Now to see all configurations use command</b><br>
+    git config --list</p>
+    <p><b>To see only the user name and email only use</b><br>
+    git config --global user.name<br>
+    git config --global user.email</p>
+
+    <h2>Git status command</h2>
+    <p><b>Git status command tells us about the present status of repository or code. Tells whether the code/repo is up to date or needs any changes to be merged</b><br>
+    git status</p>
+    <p>There are four types of status in Git:</p>
+    <ul>
+        <li><b>1) Untracked</b> (Any new file created that is not tracked by git yet. If you made any changes to this file it will still remain untracked not modified as this file is not tracked by git)</li>
+        <li><b>2) Modified</b> (Shows that you have made any change in file which is not added/committed yet.)</li>
+        <li><b>3) Staged</b> (Shows that file is ready to be committed. Means the changes you have made to file are added and now ready to be committed)</li>
+        <li><b>4) Unchanged</b> (Means there is not any change made to file yet, everything is up to date)</li>
+    </ul>
+
+    <h2>Add & Commit</h2>
+    <p><b>Git add:</b></p>
+    <p>Git add is used to add new or changed files in your working directory to the git staging area.</p>
+    <p><b>Note:</b> Git staging area acts as a middle ground between your working directory and your Git repository. This is where you tell Git, "I want to include these changes in the next commit."</p>
+    <p><b>Commands for adding files</b><br>
+    git add "file name" (Used to add single or specific file at a time)<br>
+    git add . (Used to add all updated files at once)</p>
+    <p><b>Commit Command:</b><br>
+    Once you have added changes of files it is not updated yet, we use git commit command to update files or to save changes. It is like the snapshot or record of changes you have made yet.</p>
+    <p><b>Command = </b>git commit -m "Description of changes/Meaningful Message"</p>
+
+    <h2>Push Command</h2>
+    <p>Push command is used to upload commits/changes from local repo (your PC) to remote repo (GitHub)</p>
+    <p><b>Command = </b>git push origin main<br>
+    (Pushes your local "main" branch to the remote "origin/main". But it does not set up any upstream/tracking relationship. Next time you want to push, you'll need to specify the branch again.)</p>
+    <p><b>Command = </b>git push -u origin main<br>
+    (Pushes your local "main" branch to "origin/main", Also sets up your local branch to "track" the remote branch. After this, Git knows "Okay, when working on main, I should push/pull from origin/main by default.")</p>
+
+    <h2>Init Command</h2>
+    <p>This command initializes a new local git repository in your current directory. Creates a hidden .git folder due to which your project folder becomes a local Git repository, but not yet connected to any remote like GitHub.</p>
+    <p><b>Command =</b> git init</p>
+
+    <h2>Command to link local repo to remote repo (GitHub)</h2>
+    <p>This command is used to connect/associate your local repo with a remote one (usually on GitHub, GitLab, etc.).</p>
+    <p>It involves some basic steps which you should have to consider:</p>
+    <ol>
+        <li>Create a local git repo</li>
+        <li>Create a remote repo on (GitHub) without adding a readme file</li>
+        <li>Copy the HTTPS/SSH address provided on remote repo</li>
+        <li>Execute the link command</li>
+    </ol>
+    <p><b>Command = </b>git remote add origin "HTTPS/SSH_link_of_remote_repo"</p>
+
+    <h2>Command to verify remote repo</h2>
+    <p>After linking the local repo with remote one you can check whether you linked to correct remote repo by using this command. It lists down all configured remote repositories and their URLs.</p>
+    <p><b>Command = </b>git remote -v</p>
+
+    <h2>Command to check working branch</h2>
+    <p>Shows all local branches in your repository and highlights the current working branch with an asterisk (*).</p>
+    <p><b>Command = </b>git branch</p>
+
+    <h2>Command to rename branch</h2>
+    <p>Renames the current branch to main. The -M flag forces the rename, even if a branch named main already exists. This is done because Git automatically defines "master" as the main branch. But, main is the new convention (especially on GitHub).</p>
+    <p><b>Command = </b>git branch -M main</p>
+
+    <h2>Command to navigate between branches</h2>
+    <p>Switches to an existing branch named "branch-name" in your local repository.</p>
+    <p><b>Command = </b>git checkout "branch-name"</p>
+
+    <h2>Command to create new branch</h2>
+    <p>Creates a new branch named "new-branch-name" and automatically switches to it.</p>
+    <p><b>Command = </b>git checkout -b "new-branch-name"</p>
+
+    <h2>Command to delete branch</h2>
+    <p>Used to delete an existing repository. It will not delete current working branch, you have to navigate to other branch which you don't want to delete.</p>
+    <p><b>Command = </b>git branch -d "branch name" (Deletes the specified local branch, but only if it has been fully merged into your current branch.)</p>
+    <p><b>Command = </b>git branch -D "branch name" (Used to force delete the branch even if the changes are not merged)</p>
+
+    <h2>Command to compare two branches</h2>
+    <p>This is a comparison command used to see differences between your current branch and another branch. Shows line by line changes between your current working branch (main) and specified "branch name".</p>
+    <p><b>Command = </b>git diff "branch-name"</p>
+
+    <h2>Command to merge two branches</h2>
+    <p>This command is used to merge the specified branch (branch-name) into your current branch (main).</p>
+    <p><b>Command = </b>git merge "branch-name"</p>
+
+    <h2>Pull request</h2>
+    <p>A Pull Request (PR) is a request to merge one branch into another in a remote Git hosting service (like GitHub, GitLab, Bitbucket). Basically, you tell the maintainer/owner of repo that, I have made some changes in my branch can you please review and merge them to main branch.</p>
+
+    <h2>Pull command</h2>
+    <p>This command fetches the latest changes from the main branch of the remote repo (GitHub/origin), and then merges them into your current local branch.</p>
+    <p><b>Command = </b>git pull origin main</p>
+
+    <h2>Merge conflicts</h2>
+    <p>A merge conflict happens when Git can't automatically decide how to combine changes made in different branches — because the same lines of a file have been edited in both branches. Whenever a merge conflict occurs you get 4 different ways/options to merge the code:</p>
+    <ol>
+        <li><b>Accept Current Change</b> (It allows us to accept the changes of current/working branch)</li>
+        <li><b>Accept Incoming Change</b> (It allows us to accept the changes coming from other branch (in which we are not present/working))</li>
+        <li><b>Accept Both Changes</b> (It allows us to accept changes of both branches)</li>
+        <li><b>Compare Changes</b> (It opens a side-by-side view of both versions so you can visually inspect and edit the result manually.)</li>
+    </ol>
+
+    <h2>Commands to undo changes</h2>
+    <p>If you've made changes to your repository and want to undo them, Git provides several commands and methods to help you revert or discard those changes.</p>
+    <p><b>1) Staged/add changes</b><br>
+    <b>Command = </b>git reset "file_name" (Used when you have made changes to single file or want to revert changes of single file)<br>
+    <b>Command = </b>git reset (Used when you have to revert changes from multiple files)</p>
+    <p><b>2) Committed changes</b><br>
+    <b>Command = </b>git reset HEAD~1 (Used to revert only 1 (one) commit back.)<br>
+    <b>Command = </b>git reset "commit hash" (Used to revert back to specified commit "Hash value is the assigned code of specified commit". It deletes the recent commit in git but we cannot see changes on VSCode)<br>
+    <b>Command = </b>git reset --hard "commit-hash" (Used to revert back to specified commit "Hash value is the assigned code of specified commit". It also shows changes on VSCode)</p>
+
+    <h2>Command to see commit history</h2>
+    <p>Displays the commit history of the current branch, showing all commits made — in reverse chronological order (most recent first). Displays all necessary info of commit including hash values, author name, date of commit and etc.</p>
+    <p><b>Command = </b>git log</p>
+
+    <h2>Fork</h2>
+    <p>Fork is used to create a remote copy of other's repo under your GitHub account. Allows you for Open source collaboration, experimentation and independent development without affecting the original repo. You can fork other's repo under your account and after performing changes, create a new pull request which can be merged by maintainer of repository after reviewing it.</p>
+
+    <h2>Smart Git Habits for Clean Collaboration</h2>
+    <ol>
+        <li>Always do a git pull before you start a new session of work, just to be synced.</li>
+        <li>Always create a new branch before making experimental changes. That way, your main branch remains clean and stable.</li>
+        <li>Always review your changes with git diff before committing. It prevents accidental commits of debug code or half-done work.</li>
+        <li>Pull before you push to avoid conflicts, as it keeps your changes compatible with the latest remote updates.</li>
+        <li>Use descriptive branch names, as clear and useful make collaboration cleaner.</li>
+    </ol>
+</body>
+</html>
